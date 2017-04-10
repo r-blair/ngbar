@@ -1,4 +1,6 @@
-# production_quickstart
+# ngbar
+
+An bar that sits atop your webapp and conforms to googles material standards. Built with Angular.
 
 ## things that are not built together
 
@@ -82,11 +84,11 @@ tsconfig.json
 tsconfig-aot.json
 
 
-## clean up
+## Clean up
 
 Excessive amounts of systemjs config files
 
 
 ## Current things that greatly displease me
 
-With this build system we cannot do AOT compilation and lazy-load modules as rollup does not support code splitting. (Those fuckers.)
+With this build system we cannot do AOT compilation and lazy-load modules as rollup does not support code splitting.

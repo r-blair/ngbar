@@ -1,10 +1,13 @@
 import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core';
+import { MQService } from './services/media-query.services';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+
   ],
+  providers: [ MQService ],
   declarations: []
 })
 export class CoreModule {

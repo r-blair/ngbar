@@ -3,6 +3,7 @@ const watch = require("gulp-watch");
 const sass = require("gulp-sass");
 const autoPrefixer = require("gulp-autoprefixer");
 const sourcemaps = require("gulp-sourcemaps");
+const plumber = require("gulp-plumber");
 
 const files = require("./gulp_support/component_scss_automation");
 
@@ -19,6 +20,7 @@ gulp.task('w:comp', function(){
 gulp.task('scss',function(){
     return gulp.src(["./src/**/*.scss"])
     .pipe(sourcemaps.init())
+    .pipe(plumber())
     .pipe(sass({outputStyle:'compressed'}))
     .pipe(autoPrefixer(autoPrefixerOptions))
     .pipe(sourcemaps.write())

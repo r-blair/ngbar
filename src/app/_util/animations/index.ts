@@ -1,1 +1,1 @@
-export {slideInDownAnimation} from './slide-in-down-animation'
+export {slideInDownAnimation} from './slide-in-down-animation';

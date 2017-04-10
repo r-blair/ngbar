@@ -1,2 +1,6 @@
 // The purpose of base is to establish a base for all components, things that will be similar throughout
 
+@function rem($multiplier) {
+  $font-size: 10px;
+  @return $multiplier * $font-size;
+}

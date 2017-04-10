@@ -6,17 +6,24 @@ import 'hammerjs';
 import { CoreModule } from './_core/core.module';
 import { SharedModule } from './_shared/shared.module';
 
+import { BarModule } from './bar/bar.module';
+import { BarBoxComponent } from './bar/bar-box/bar-box.component';
+
 import { AppComponent }  from './app.component';
-import { TestComponent } from './test/test.component';
+
+
+
 
 @NgModule({
   imports:      [
     BrowserModule,
     CoreModule,
     SharedModule, // Do I want this here?
-    MaterialModule
+    //FlexLayoutModule,
+    MaterialModule,
+    BarModule
     ],
-  declarations: [ AppComponent, TestComponent ],
+  declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

@@ -1,13 +1,34 @@
-@import './loop/loop.component-theme';
-@import './mert/mert.component-theme';
-@import './legard/legard.component-theme';
-@import './test/test.component-theme';
+@import './bar/bar-logo/bar-logo.component-theme.scss';
+@import './bar/bar-button/bar-button.component-theme.scss';
+@import './bar/bar-nav/bar-nav.component-theme.scss';
+@import './bar/bar-box/bar-box.component-theme.scss';
+
+
 @mixin component-theme($theme) {
-    @include loop-theme($theme);
-    @include mert-theme($theme);
-    @include legard-theme($theme);
-    @include test-theme($theme);
+    @include bar-logo-theme($theme);
+    @include bar-button-theme($theme);
+    @include bar-nav-theme($theme);
+    @include bar-box-theme($theme);
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,23 @@
+@import "bar-button.component-base.scss";
+
+.button-container{
+  height: 100%;
+  background-color: rgba(255, 0, 0, 0.2);
+
+}
+
+.button{
+  height: 58px;
+  width: 58px;
+  border-radius: 5px;
+}
+
+.button-bar{
+  height: 1px;
+  width: 30px;
+  background-color: black;
+}
+
+.middle-bar{
+  margin: 3px 0 3px 0;
+}

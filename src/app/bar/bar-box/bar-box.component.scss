@@ -1,0 +1,24 @@
+@import "bar-box.component-base.scss";
+
+.box-logo {
+
+}
+
+.box-button {
+
+}
+
+.box-container {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    min-height: 175px;
+
+}
+
+.box-button-logo-container {
+  padding: .75rem;
+
+}

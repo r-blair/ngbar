@@ -2,10 +2,8 @@
 @import 'scss/bootstrap/bootstrap-reboot';
 @import 'scss/bootstrap/bootstrap-grid';
 // @import 'scss/material-themes/custom-theme';
-
-@import 'node_modules/@angular/material/core/theming/all-theme';
-
-@import './app/component-theme';
+@import 'scss/material/core/theming/all-theme';
+@import 'app/component-theme';
 
 @include mat-core();
 
@@ -20,4 +18,16 @@ $app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
 
 h1 {
     background-color: $blue;
+}
+
+header *:not(input):not(textarea):not(select) {
+    background-color:rgba(0, 0, 255, 0.1);
+    border: .2px solid black;
+
+}
+
+
+*{
+  border: .2px solid black;
+  box-sizing: border-box;
 }

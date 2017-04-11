@@ -1,94 +1,31 @@
 # ngbar
 
-An bar that sits atop your webapp and conforms to googles material standards. Built with Angular.
+## What this is:
 
-## things that are not built together
+A bar that sits atop your webapp and conforms to google's material standards. Built with Angular.
 
-build:aot  (is currently done without a watcher)
-build (for jit)
-scss compilation
+## What it's built with:
 
-## efficiency issues
+* [Angular](https://angular.io/)
+* [@angular/flex-layout](https://github.com/angular/flex-layout)
+* [@angular/material2](https://material.angular.io/)
+* [RxJs](http://reactivex.io/rxjs/)
+* [Bootstrap 4](https://v4-alpha.getbootstrap.com/getting-started/introduction/)
 
-generating new components with the current setup requires alot of manual setup (which in turn leaves alot of room for human error)
+## Its features:
 
-current generation leaves
+* Fully responsive, has [@angular/flex-layout](https://github.com/angular/flex-layout/wiki/API-Documentation) built into every component.
+* Easy to theme as every component is linked to a single point that implements google's [material color palette](https://material.io/color/#!/).
+* Easy to brand as all branding-points are sourced to a file outside of the implementation. (Yet to be implemented!)
 
-```plain
-<root>
-<scss>
-<src>
-<app>
-_component-theme.scss
-<component name>
-  <component name>.component.ts|html|scss
+## Noteworthy implementation details:
 
-As part of our styling procedure we're using 2 scss partials
+* [BehaviorSubject](http://reactivex.io/rxjs/class/es6/BehaviorSubject.js~BehaviorSubject.html) service provided at the root component level that broadcasts the current activated mediaquery to components as they're created. Using [Angular lifehooks](https://angular.io/docs/ts/latest/guide/lifecycle-hooks.html) the component will configure its view accordingly and unsubscribe on destruction to avoid memory-leaks.
 
-_<component name>.component-base.scss
-_<component name>.component-theme.scss
+* Bootstrap 4 recompiled to sync with the [window breakpoints spectrum](https://material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints) given by Google's Material design.
 
-where -theme is a mixin that gets wired through _component-theme.scss for faster design change
-and -base is importing in app level styles
+## Work to be done:
 
-gulpfile needs to ignore the bootstrap directory while compiling scss
+**Lots.**
 
-ng g component <path>/<component name>
-
-will generate a directory at src/app/<path>/<component name> containing <component name>.component.ts|html|scss
-
-we can use a gulp directory watcher to watch for the addition of src/app/<path>/<component name>/<component name>.component.scss
-and then create the 2 partials and wire it up.
-
-Wiring that needs to be done: -theme needs to be wired through the mixin _component-theme
-
-how to implement this:
-
-gulp watcher for components (adding a component, moving a component and deleting a component should all be dealt with accordingly)
-
-Upon adding a component, create the 2 files
-
-
-```
-
-
-
-
-
-## build tools
-
-vscode
-gulp
-npm
-
-## config files
-
-package.json
-
-.editorconfig
-.gitignore
-
-systemjs-angular-loader.js
-systemjs.config.extras.js
-systemjs.config.js
-systemjs.config.server.js
-
-.angular-cli.json
-
-bs-config.e2e.json
-bs-config.json
-karma.conf.js
-
-rollup-config.js
-tsconfig.json
-tsconfig-aot.json
-
-
-## Clean up
-
-Excessive amounts of systemjs config files
-
-
-## Current things that greatly displease me
-
-With this build system we cannot do AOT compilation and lazy-load modules as rollup does not support code splitting.
+Implementing navigation links with a router and moving the route paths outside of the implementation for one.

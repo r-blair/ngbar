@@ -2,8 +2,9 @@
 [fxLayout]="boxContainerLayout"
 [fxLayoutAlign]="boxContainerLayoutAlign">
 
-  <app-bar-nav
-  class="box-nav"
+  <app-bar-nav class="box-nav"
+  [fxLayout]="boxNavContainerLayout"
+  [fxLayoutAlign]="boxNavContainerLayoutAlign"
   [fxFlex]="boxNavFlex"></app-bar-nav>
 
   <div class="box-button-logo-container"
@@ -11,12 +12,12 @@
   [fxLayoutAlign]="boxButtonLogoContainerLayoutAlign"
   [fxFlex]="boxButtonLogoContainerFlex">
 
-    <app-bar-button
-    class="box-button"
-    [fxFlex]="boxButtonFlex"></app-bar-button>
+    <app-bar-button class="box-button"
+    [fxFlex]="boxButtonFlex"
+    [fxShow]='buttonShow'
+    (click)="toggle()"></app-bar-button>
 
-    <app-bar-logo
-    class="box-logo"
+    <app-bar-logo class="box-logo"
     [fxFlex]="boxLogoFlex"
     [fxFlexAlign]="boxLogoFlexAlign"></app-bar-logo>
 

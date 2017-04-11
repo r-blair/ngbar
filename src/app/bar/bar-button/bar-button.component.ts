@@ -10,7 +10,7 @@ export class BarButtonComponent implements OnInit {
   buttonContainerLayoutAlign = "center center";
   buttonLayout = "column";
   buttonLayoutAlign = "center center";
-  buttonFlex = "0 1 64px";
+  buttonFlex = "0 1 48px";
   constructor() { }
 
   ngOnInit() {

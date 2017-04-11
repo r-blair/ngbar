@@ -1,13 +1,14 @@
-<div class="nav-container"
+<!--<div class="nav-container"
   [fxLayout]="navContainerLayout"
-  [fxLayoutAlign]="navContainerLayoutAlign">
+  [fxLayoutAlign]="navContainerLayoutAlign">-->
     <div class="nav-item-container"
+      *ngFor="let item of navList"
       [fxLayout]="navItemContainerLayout"
       [fxLayoutAlign]="navItemContainerLayoutAlign"
       [fxFlex]="navItemContainerFlex">
       <div class="nav-item"
         [fxFlex]="navItemFlex">
-
+                  {{item}}
       </div>
     </div>
-</div>
+<!--</div>-->

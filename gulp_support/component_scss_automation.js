@@ -18,7 +18,6 @@ function themeInclude(file){
 
 function themeImport(file){
   let x = path.relative(route_to_themesList, themeFilePath(file));
-  //return `@import \'${"." + ((path.join(path.parse(x).dir, path.parse(x).name.slice(1, this.length))).slice(2, this.length)).replace(/\\/g,'/')}\';\r`;
   return `@import \'${"." + x.slice(2, this.length).replace(/\\/g,'/')}\';\r`;
 };
 
@@ -28,12 +27,10 @@ function themeName(file){
 
 function themeFilePath(file){
   return file.path.replace(".scss", "-theme.scss");
-  //return path.join(file.base, themeName(file), "_" + path.parse(file.path).name + "-theme.scss");
 };
 
 function baseFilePath(file){
   return file.path.replace(".scss", "-base.scss");
-  //return path.join(file.base, themeName(file), "_" + path.parse(file.path).name + "-base.scss");
 };
 
 function componentRoute(file){
@@ -41,7 +38,6 @@ function componentRoute(file){
 };
 
 function componentThemeImportStatement(file){
-  //.slice(3, this.length)
   return `@import \"${path.relative(themeFilePath(file), "./src/app/scss/material/core/theming/all-theme").replace(/\\/g,'/')}\";`;
 };
 
@@ -63,9 +59,12 @@ exports.add = function ( file ) {
     fs.readFile( route_to_themesList, 'utf8', ( err , data ) => {
 
       let lines = data.split('\n');
+
         lines.splice(lines.findIndex(ofMixin) + 1, 0, themeInclude(file));
         lines.splice(0, 0, themeImport(file));
+
       let updated = lines.map(x => x.concat('\n')).reduce(( x , y ) => x + y );
+
         fs.writeFile( route_to_themesList, updated, (err) => {
             if (err) throw err;
           });
@@ -74,9 +73,12 @@ exports.add = function ( file ) {
     fs.readFile("./gulp_support/theme.scss", "utf8", ( err , data ) => {
 
       let lines = data.split('\n');
+
         lines[0] = componentThemeImportStatement(file);
         lines[lines.findIndex(ofMixin)] = componentThemeMixinStatement(file);
+
       let updated = lines.map(x => x.concat('\n')).reduce(( x , y ) => x + y );
+
         fs.writeFile(themeFilePath(file), updated, (err) => {
             if (err) throw err;
           });
@@ -85,8 +87,11 @@ exports.add = function ( file ) {
     fs.readFile("./gulp_support/base.scss", "utf8", ( err , data ) => {
 
       let lines = data.split('\n');
+
         lines.push(baseVariableImport(file));
+
       let updated = lines.map(x => x.concat('\n')).reduce(( x , y ) => x + y );
+
         fs.writeFile(baseFilePath(file), updated, (err) => {
             if (err) throw err;
           });
@@ -95,10 +100,13 @@ exports.add = function ( file ) {
     fs.writeFile(file.path, `@import \"${path.parse(baseFilePath(file)).name + ".scss"}\";`);
 
     fs.readFile(componentRoute(file), "utf8", ( err , data ) => {
-      console.log(componentRoute(file));
+
       let lines = data.split('\n');
+
         lines[lines.findIndex(ofStylesUrl)] = `   styleUrls: [\'./${path.parse(file.path).name + '.css'}\']`;
+
       let updated = lines.map(x => x.concat('\n')).reduce(( x , y ) => x + y );
+
         fs.writeFile(componentRoute(file), updated, (err) => {
             if (err) throw err;
           });

@@ -27,7 +27,7 @@ header *:not(input):not(textarea):not(select) {
 }
 
 
-*{
+*:not(my-app):not(app-bar-box){
   border: .2px solid black;
   box-sizing: border-box;
 }

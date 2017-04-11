@@ -5,7 +5,8 @@ const autoPrefixer = require("gulp-autoprefixer");
 const sourcemaps = require("gulp-sourcemaps");
 const plumber = require("gulp-plumber");
 
-const files = require("./gulp_support/component_scss_automation");
+const materialAuto = require("./gulp_support/component_scss_automation");
+const layoutAuto = require("./gulp_support/component_markup_automation");
 
 const autoPrefixerOptions = {
     browsers : ['last 2 versions']
@@ -13,8 +14,14 @@ const autoPrefixerOptions = {
 
 gulp.task('w:comp', function(){
     return watch('./src/app/**/*.component.scss', function ( vinyl ) {
-        files[vinyl.event](vinyl);
+        materialAuto[vinyl.event](vinyl);
     });
+});
+
+gulp.task("w:html", function(){
+  return watch('./src/app/**/*.component.html', function ( vinyl ) {
+      layoutAuto[vinyl.event](vinyl);
+  });
 });
 
 gulp.task('scss',function(){

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { MQService } from '../../_core/services/media-query.services';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-bar-logo',
@@ -11,10 +13,63 @@ export class BarLogoComponent implements OnInit {
   logoLayout = "row";
   logoLayoutAlign = "start center";
   logoFlex = "0 1 95%";
-  constructor() { }
+  exec: Subscription;
+  constructor(private mqs: MQService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() { this.exec = this.mqs.feed( x => this.initialState(x)); }
+  ngOnDestroy() { this.exec.unsubscribe(); }
+
+  initialState(mqAlias: string){
+
+        switch(mqAlias){
+          case 'xs':
+            console.log(mqAlias);
+            this.logoContainerLayout = "row";
+            this.logoContainerLayoutAlign = "center center";
+            this.logoLayout = "row";
+            this.logoLayoutAlign = "start center";
+            this.logoFlex = "0 1 95%";
+          break;
+          case 'sm':
+            console.log(mqAlias);
+            this.logoContainerLayout = "row";
+            this.logoContainerLayoutAlign = "center center";
+            this.logoLayout = "row";
+            this.logoLayoutAlign = "start center";
+            this.logoFlex = "0 1 95%";
+
+          break;
+          case 'md':
+            console.log(mqAlias);
+            this.logoContainerLayout = "row";
+            this.logoContainerLayoutAlign = "center center";
+            this.logoLayout = "row";
+            this.logoLayoutAlign = "start center";
+            this.logoFlex = "0 1 95%";
+
+          break;
+          case 'lg':
+            console.log(mqAlias);
+            this.logoContainerLayout = "row";
+            this.logoContainerLayoutAlign = "center center";
+            this.logoLayout = "row";
+            this.logoLayoutAlign = "start center";
+            this.logoFlex = "0 1 95%";
+
+          break;
+          case 'xl':
+            console.log(mqAlias);
+            this.logoContainerLayout = "row";
+            this.logoContainerLayoutAlign = "center center";
+            this.logoLayout = "row";
+            this.logoLayoutAlign = "start center";
+            this.logoFlex = "0 1 95%";
+
+          break;
+          default:
+            console.log(mqAlias);
+              }
+      }
 
 }
 

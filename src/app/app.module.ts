@@ -10,6 +10,7 @@ import { BarModule } from './bar/bar.module';
 import { BarBoxComponent } from './bar/bar-box/bar-box.component';
 
 import { AppComponent }  from './app.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 
@@ -19,7 +20,7 @@ import { AppComponent }  from './app.component';
     BrowserModule,
     CoreModule,
     SharedModule, // Do I want this here?
-    //FlexLayoutModule,
+    FlexLayoutModule,
     MaterialModule,
     BarModule
     ],

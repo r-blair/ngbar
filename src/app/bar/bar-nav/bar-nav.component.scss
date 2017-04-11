@@ -1,11 +1,14 @@
 @import "bar-nav.component-base.scss";
 
 .nav-container {
+  padding:2px;
 
 }
 .nav-item-container{
-
+  padding: 3px;
+  width: 200px;
+  margin: 2px;
 }
 .nav-item{
-
+  height: 20px;
 }

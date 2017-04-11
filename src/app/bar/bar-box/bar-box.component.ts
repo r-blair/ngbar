@@ -10,63 +10,87 @@ import { ASwitch, LayoutAlignSettings, LayoutSettings } from '../../_util/helper
 })
 export class BarBoxComponent implements OnInit, OnDestroy {
 
-  layout = new LayoutSettings;
-  layoutAlign = new LayoutAlignSettings;
+
+
+
+  boxContainerLayout = 'column';
+  boxContainerLayoutAlign = 'space-between stretch';
+  boxNavContainerLayout = "column";
+  boxNavContainerLayoutAlign = "space-around center";
+  boxNavFlex = '0 1 auto';
+  boxButtonLogoContainerLayout = 'row';
+  boxButtonLogoContainerLayoutAlign = 'space-between center';
+  boxButtonLogoContainerFlex = '110px';
+  boxButtonFlex = '25';
+  boxLogoFlex = '1 1 auto';
+
+  buttonShow = true;
   here = "bar-box";
   exec: Subscription;
   switch = new ASwitch();
-  buttonShow = true;
-  boxContainerLayout = 'column';
-  //this.layout.row;
-  boxContainerLayoutAlign = 'space-between stretch';
-  boxButtonLogoContainerLayout = 'row';
-  boxButtonLogoContainerLayoutAlign = 'space-between center';
-  boxButtonLogoContainerFlex = '80px';
-  boxButtonFlex = '25';
-  boxLogoFlex = '1 1 auto';
-  //boxLogoFlexAlign = 'baseline';
-
-
-  //this.layoutAlign.x.spaceBetween + this.layoutAlign.y.stretch;
-  // boxLogoFlex
-  // boxNavFlex
-  // boxButtonFlex
 
   constructor(private mqs: MQService) {}
 
-  ngOnInit() { this.exec = this.mqs.feed( x => console.log(x + this.here)); }
+  ngOnInit() { this.exec = this.mqs.feed( x => this.initialState(x)); }
   ngOnDestroy() { this.exec.unsubscribe(); }
   toggle(){
     if (this.buttonShow){ this.switch.toggle() } else{};
       };
 
   initialState(mqAlias: string){
-               // row | column | row-reverse | column-reverse
 
         switch(mqAlias){
           case 'xs':
+            console.log(mqAlias);
             this.buttonShow = true;
             this.switch.state = 'inactive';
+            this.boxContainerLayout = 'column';
+            this.boxContainerLayoutAlign = 'space-between stretch';
+            this.boxNavContainerLayout = "column";
+            this.boxNavContainerLayoutAlign = "space-around center";
 
           break;
           case 'sm':
+            console.log(mqAlias);
             this.buttonShow = true;
             this.switch.state = 'inactive';
+            this.boxContainerLayout = 'column';
+            this.boxContainerLayoutAlign = 'space-between stretch';
+            this.boxNavContainerLayout = "column";
+            this.boxNavContainerLayoutAlign = "space-around center";
 
           break;
           case 'md':
+            console.log(mqAlias);
             this.buttonShow = false;
             this.switch.state = 'active';
+            this.boxContainerLayout = 'row-reverse';
+            this.boxContainerLayoutAlign = 'space-between stretch';
+            this.boxNavContainerLayout = "row";
+            this.boxNavContainerLayoutAlign = "start center";
+            this.boxNavFlex = '1 1 auto';
 
           break;
           case 'lg':
+            console.log(mqAlias);
             this.buttonShow = false;
             this.switch.state = 'active';
+            this.boxContainerLayout = 'row-reverse';
+            this.boxContainerLayoutAlign = 'space-between stretch';
+            this.boxNavContainerLayout = "row";
+            this.boxNavContainerLayoutAlign = "start center";
+            this.boxNavFlex = '1 1 auto';
 
           break;
           case 'xl':
+            console.log(mqAlias);
             this.buttonShow = false;
             this.switch.state = 'active';
+            this.boxContainerLayout = 'row-reverse';
+            this.boxContainerLayoutAlign = 'space-between stretch';
+            this.boxNavContainerLayout = "row";
+            this.boxNavContainerLayoutAlign = "start center";
+            this.boxNavFlex = '1 1 auto';
 
           break;
           default:

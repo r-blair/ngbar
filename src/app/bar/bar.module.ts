@@ -11,12 +11,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FlexLayoutModule
-  ],
+  imports: [CommonModule, FlexLayoutModule],
+
   exports: [BarBoxComponent, BarNavComponent, BarButtonComponent, BarLogoComponent],
-  //declarations: [BarBoxComponent, BarLogoComponent, BarNavComponent, BarButtonComponent]
+
   declarations: [BarBoxComponent, BarNavComponent, BarButtonComponent, BarLogoComponent]
 })
 export class BarModule { }

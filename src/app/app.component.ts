@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'my-app',
-  template: `<app-bar-box></app-bar-box>`,
+  templateUrl: './app.component.html',
 })
-export class AppComponent  { name = 'Angular'; }
+export class AppComponent  {
+  barContainerLayout = 'column';
+  barContainerLayoutAlign = 'space-between stretch';
+}
